@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="UDI International Sports Association - A Non-Government Organization promoting international sports excellence. Website launching soon.">
+    <meta name="keywords" content="UDI Sports, International Sports Association, NGO, Sports Organization, India">
+    <title>Coming Soon - UDI International Sports Association</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --saffron: #FF9933;
+            --white: #FFFFFF;
+            --green: #138808;
+            --navy: #000080;
+            --gradient-1: linear-gradient(135deg, #FF9933 0%, #FF6B35 100%);
+            --gradient-2: linear-gradient(135deg, #138808 0%, #0A5804 100%);
+            --gradient-glow: linear-gradient(135deg, #FF9933, #FFFFFF, #138808);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f8f9fa 100%);
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Animated Background Waves */
+        .wave-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .wave {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            opacity: 0.08;
+        }
+
+        .wave-1 {
+            background: radial-gradient(ellipse at center, var(--saffron) 0%, transparent 70%);
+            top: -50%;
+            left: -50%;
+            animation: wave-float-1 20s ease-in-out infinite;
+        }
+
+        .wave-2 {
+            background: radial-gradient(ellipse at center, var(--green) 0%, transparent 70%);
+            bottom: -50%;
+            right: -50%;
+            animation: wave-float-2 25s ease-in-out infinite;
+        }
+
+        .wave-3 {
+            background: radial-gradient(ellipse at center, var(--saffron) 0%, transparent 60%);
+            top: 20%;
+            right: -30%;
+            animation: wave-float-3 30s ease-in-out infinite;
+        }
+
+        @keyframes wave-float-1 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(15%, 15%) rotate(5deg); }
+        }
+
+        @keyframes wave-float-2 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-20%, -10%) rotate(-5deg); }
+        }
+
+        @keyframes wave-float-3 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-10%, 10%) scale(1.1); }
+        }
+
+        /* Particle System */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--saffron);
+            border-radius: 50%;
+            opacity: 0.4;
+            animation: particle-float linear infinite;
+        }
+
+        @keyframes particle-float {
+            0% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.4;
+            }
+            90% {
+                opacity: 0.2;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(50px) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            animation: fade-in 1s ease-out;
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Logo Section */
+        .logo-section {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: slide-down 1s ease-out 0.2s both;
+        }
+
+        @keyframes slide-down {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .logo {
+            max-width: 220px;
+            height: auto;
+            filter: drop-shadow(0 15px 40px rgba(255, 153, 51, 0.3));
+            transition: all 0.4s ease;
+            animation: logo-float 3s ease-in-out infinite;
+        }
+
+        @keyframes logo-float {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-10px) scale(1.05);
+            }
+        }
+
+        .logo:hover {
+            transform: scale(1.15) translateY(-10px) rotateY(10deg);
+            filter: drop-shadow(0 20px 50px rgba(255, 153, 51, 0.5));
+        }
+
+        /* Glassmorphism Card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(30px);
+            border-radius: 40px;
+            padding: 80px 60px;
+            max-width: 1100px;
+            width: 100%;
+            box-shadow: 
+                0 30px 90px rgba(0, 0, 0, 0.15),
+                0 0 0 1px rgba(255, 255, 255, 0.8),
+                inset 0 1px 0 rgba(255, 255, 255, 1),
+                0 0 100px rgba(255, 153, 51, 0.1);
+            position: relative;
+            overflow: hidden;
+            animation: card-entrance 1s ease-out 0.4s both;
+            transform-style: preserve-3d;
+        }
+
+        @keyframes card-entrance {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(50px) rotateX(10deg);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0) rotateX(0deg);
+            }
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: var(--gradient-glow);
+            border-radius: 40px;
+            z-index: -1;
+            opacity: 0.4;
+            filter: blur(30px);
+            animation: glow-pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes glow-pulse {
+            0%, 100% { 
+                opacity: 0.3;
+                filter: blur(30px);
+            }
+            50% { 
+                opacity: 0.6;
+                filter: blur(40px);
+            }
+        }
+
+        /* Floating Sports Elements */
+        .floating-sports {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .sport-icon {
+            position: absolute;
+            font-size: 70px;
+            opacity: 0.2;
+            animation: float-sport 6s ease-in-out infinite;
+            filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.25));
+        }
+
+        .sport-1 {
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .sport-2 {
+            top: 15%;
+            right: 8%;
+            animation-delay: 1s;
+        }
+
+        .sport-3 {
+            bottom: 20%;
+            left: 10%;
+            animation-delay: 2s;
+        }
+
+        .sport-4 {
+            bottom: 15%;
+            right: 5%;
+            animation-delay: 3s;
+        }
+
+        @keyframes float-sport {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg) scale(1);
+            }
+            50% {
+                transform: translateY(-40px) rotate(15deg) scale(1.1);
+            }
+        }
+
+        /* Typography */
+        .main-heading {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--saffron), var(--navy), var(--green));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            animation: text-glow 3s ease-in-out infinite;
+            letter-spacing: -1px;
+        }
+
+        @keyframes text-glow {
+            0%, 100% {
+                filter: drop-shadow(0 0 15px rgba(255, 153, 51, 0.4));
+            }
+            50% {
+                filter: drop-shadow(0 0 30px rgba(255, 153, 51, 0.6));
+            }
+        }
+
+        .subheading {
+            font-size: 1.3rem;
+            color: #666;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 50px;
+            letter-spacing: 1px;
+        }
+
+        .coming-soon {
+            font-size: 4rem;
+            font-weight: 900;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            animation: scale-pulse 2s ease-in-out infinite;
+            text-shadow: 0 10px 30px rgba(255, 153, 51, 0.3);
+        }
+
+        @keyframes scale-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+
+        .coming-soon::before {
+            content: '🚀';
+            position: absolute;
+            left: -70px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 3rem;
+            animation: rocket-shake 2s ease-in-out infinite;
+        }
+
+        @keyframes rocket-shake {
+            0%, 100% { 
+                transform: translateY(-50%) rotate(0deg);
+            }
+            25% { 
+                transform: translateY(-55%) rotate(-8deg) scale(1.1);
+            }
+            75% { 
+                transform: translateY(-45%) rotate(8deg) scale(1.1);
+            }
+        }
+
+        .description {
+            font-size: 1.4rem;
+            color: #555;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            line-height: 2;
+            font-weight: 400;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            text-align: center;
+            margin: 60px 0 30px;
+            padding: 50px;
+            background: linear-gradient(135deg, rgba(255, 153, 51, 0.08), rgba(19, 136, 8, 0.08));
+            border-radius: 25px;
+            border: 3px dashed rgba(255, 153, 51, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 153, 51, 0.1), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .contact-label {
+            font-size: 1.3rem;
+            color: #555;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .email-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--saffron);
+            text-decoration: none;
+            padding: 20px 40px;
+            background: rgba(255, 153, 51, 0.15);
+            border-radius: 60px;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            border: 3px solid transparent;
+            position: relative;
+            z-index: 1;
+        }
+
+        .email-link::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-1);
+            border-radius: 60px;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.4s ease;
+        }
+
+        .email-link:hover::after {
+            opacity: 1;
+        }
+
+        .email-link:hover {
+            color: white;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(255, 153, 51, 0.4);
+            border-color: var(--saffron);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .glass-card {
+                padding: 50px 30px;
+                border-radius: 25px;
+            }
+
+            .main-heading {
+                font-size: 2.2rem;
+            }
+
+            .subheading {
+                font-size: 1rem;
+            }
+
+            .coming-soon {
+                font-size: 2.5rem;
+            }
+
+            .coming-soon::before {
+                position: relative;
+                left: 0;
+                display: block;
+                margin-bottom: 15px;
+                font-size: 2.5rem;
+            }
+
+            .description {
+                font-size: 1.1rem;
+            }
+
+            .email-link {
+                font-size: 1.1rem;
+                padding: 15px 25px;
+            }
+
+            .sport-icon {
+                font-size: 50px;
+            }
+
+            .logo {
+                max-width: 170px;
+            }
+
+            .contact-section {
+                padding: 30px 20px;
+            }
+
+            .contact-label {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-heading {
+                font-size: 1.8rem;
+            }
+
+            .coming-soon {
+                font-size: 2rem;
+            }
+
+            .glass-card {
+                padding: 35px 20px;
+            }
+
+            .description {
+                font-size: 1rem;
+            }
+
+            .logo {
+                max-width: 150px;
+            }
+        }
+
+        /* Decorative Bottom Section */
+        .bottom-decoration {
+            text-align: center;
+            margin-top: 40px;
+            padding-bottom: 30px;
+        }
+
+        .decoration-line {
+            width: 150px;
+            height: 4px;
+            background: var(--gradient-glow);
+            margin: 0 auto 15px;
+            border-radius: 10px;
+            animation: line-pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes line-pulse {
+            0%, 100% {
+                width: 150px;
+                opacity: 0.6;
+            }
+            50% {
+                width: 200px;
+                opacity: 1;
+            }
+        }
+
+        .decoration-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--saffron), var(--green));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+        }
+
+        /* Additional shine effect */
+        @keyframes gradient-shift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Wave Background -->
+    <div class="wave-background">
+        <div class="wave wave-1"></div>
+        <div class="wave wave-2"></div>
+        <div class="wave wave-3"></div>
+    </div>
+
+    <!-- Particle System -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Floating Sports Elements -->
+    <div class="floating-sports">
+        <div class="sport-icon sport-1">⚽</div>
+        <div class="sport-icon sport-2">🏀</div>
+        <div class="sport-icon sport-3">🏏</div>
+        <div class="sport-icon sport-4">🏆</div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Logo Section -->
+        <div class="logo-section">
+            <!-- 👇 REPLACE THIS IMAGE WITH YOUR LOGO FILE 👇 -->
+            <!-- Example: <img src="your-logo.png" alt="UDI Sports Logo" class="logo"> -->
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23FF9933;stop-opacity:1' /%3E%3Cstop offset='50%25' style='stop-color:%23FFFFFF;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23138808;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='100' cy='100' r='90' fill='url(%23grad1)' opacity='0.2'/%3E%3Ctext x='100' y='110' font-family='Arial, sans-serif' font-size='60' font-weight='bold' text-anchor='middle' fill='%23FF9933'%3EUDI%3C/text%3E%3Ccircle cx='100' cy='100' r='85' fill='none' stroke='url(%23grad1)' stroke-width='4'/%3E%3C/svg%3E" alt="UDI Sports Logo" class="logo">
+        </div>
+
+        <!-- Glassmorphism Card -->
+        <div class="glass-card">
+            <h1 class="main-heading">UDI International Sports Association</h1>
+            <p class="subheading">(A Non-Government Organization)</p>
+
+            <h2 class="coming-soon">Website Coming Soon</h2>
+
+            <p class="description">
+                We are building something powerful for the future of international sports. Stay tuned.
+            </p>
+
+
+
+            <!-- Contact Section -->
+            <div class="contact-section">
+                <p class="contact-label">📧 If you face any problem, mail us at:</p>
+                <a href="mailto:info@udisports.in" class="email-link">
+                    <span>✉️</span>
+                    <span>info@udisports.in</span>
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Decorative Bottom Section -->
+        <div class="bottom-decoration">
+            <div class="decoration-line"></div>
+            <div class="decoration-text">✨ Excellence in Sports ✨</div>
+        </div>
+    </div>
+
+    <script>
+        // Particle System
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = window.innerWidth < 768 ? 30 : 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                const startX = Math.random() * 100;
+                const delay = Math.random() * 10;
+                const duration = 15 + Math.random() * 15;
+                const size = 2 + Math.random() * 4;
+                
+                particle.style.left = startX + '%';
+                particle.style.animationDelay = delay + 's';
+                particle.style.animationDuration = duration + 's';
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                
+                // Random color: saffron or green
+                if (Math.random() > 0.5) {
+                    particle.style.background = '#FF9933';
+                } else {
+                    particle.style.background = '#138808';
+                }
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        createParticles();
+
+        // 3D Tilt Effect for Glass Card (Desktop only)
+        if (window.innerWidth > 768) {
+            const card = document.querySelector('.glass-card');
+            
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+            });
+        }
+
+        // Smooth Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+    </script>
+</body>
+</html>
